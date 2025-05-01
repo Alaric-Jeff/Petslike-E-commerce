@@ -1,5 +1,5 @@
 import { DataTypes, Model } from "sequelize";
-import sequelize from "../Config/database.js";
+import {sequelize} from "../Config/database.js";
 
 class UserModel extends Model {}   
 
@@ -37,10 +37,11 @@ UserModel.init({
 }, {
     sequelize,
     modelName: "UserModel",
-    tableName: "Userstb",
+    tableName: "Users",
     timestamps: true,
-    underscored: true,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
 });
+
+export default UserModel
 
