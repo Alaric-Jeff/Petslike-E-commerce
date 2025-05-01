@@ -13,7 +13,7 @@ const initDatabase = async () => {
       host: process.env.DB_HOST,
       user: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
-      port: process.env.PORT,
+      port: process.env.DB_PORT,
     });
 
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${process.env.DB_NAME}\`;`);
@@ -32,7 +32,7 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST,
     dialect: process.env.DB_DIALECT,
-    port: process.env.PORT,
+    port: process.env.DB_PORT,
     logging: (msg) => logger.debug(msg),
     pool: {
       max: 5,
