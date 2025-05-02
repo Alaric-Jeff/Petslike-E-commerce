@@ -40,10 +40,7 @@ UserModel.init({
     tableName: "Users",
     timestamps: true,
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    indexes: [
-        { fields: ['userId'] }
-    ]
+    updatedAt: 'updatedAt'
 });
 
 export default UserModel

@@ -24,7 +24,7 @@ ProductModel.init({
     },
     meatType: {
         type: DataTypes.STRING(50),
-        allowNull: false
+        allowNull: false,
     },
     lifeStage: {
         type: DataTypes.STRING(50),
