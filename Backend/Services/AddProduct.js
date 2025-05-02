@@ -11,7 +11,7 @@ async function AddProduct(productName, productPrice, productQuantity, meatType, 
             lifeStage
         })
     }catch(err){
-        logger.error("Error adding product in services")
+        logger.error("Error adding product in services, reason: ", err)
     }
 }
 
