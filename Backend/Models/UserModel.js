@@ -41,6 +41,10 @@ UserModel.init({
     timestamps: true,
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
+    indexes: [
+        { fields: ['email'] },
+        { fields: ['userId'] }
+    ]
 });
 
 export default UserModel

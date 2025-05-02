@@ -11,11 +11,11 @@ ProductModel.init({
         primaryKey: true
     },
     productName: {
-        type: DataTypes.STRING(100), // limit to 100 chars
+        type: DataTypes.STRING(100), 
         allowNull: false
     },
     productPrice: {
-        type: DataTypes.DOUBLE(10, 2), // precision: max 10 digits, 2 decimal places
+        type: DataTypes.DOUBLE(10, 2), 
         defaultValue: 0.00
     },
     productQuantity: {

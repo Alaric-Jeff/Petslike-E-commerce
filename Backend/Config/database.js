@@ -13,7 +13,7 @@ const initDatabase = async () => {
       host: process.env.DB_HOST,
       user: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
-      port: process.env.DB_PORT,
+      port: 3306,
     });
 
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${process.env.DB_NAME}\`;`);
@@ -42,16 +42,5 @@ const sequelize = new Sequelize(
     },
   }
 );
-
-(async () => {
-  try {
-    await initDatabase();
-    await sequelize.authenticate();
-    logger.info('Database connection has been established successfully.');
-  } catch (error) {
-    logger.error('Unable to connect to the database:', error);
-    process.exit(1); 
-  }
-})();
 
 export  {sequelize, initDatabase};
