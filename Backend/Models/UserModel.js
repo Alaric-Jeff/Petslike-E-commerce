@@ -42,7 +42,6 @@ UserModel.init({
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     indexes: [
-        { fields: ['email'] },
         { fields: ['userId'] }
     ]
 });

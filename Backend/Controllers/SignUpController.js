@@ -1,4 +1,4 @@
-import CheckUser from "../Services/CheckUser.js";
+import UserModel from "../Models/UserModel.js";
 import CreateUser from "../Services/CreateUser.js";
 import logger from "../Utils/logger.js";
 
@@ -6,12 +6,15 @@ const SignUpController = async (req, res) => {
     const {firstName, lastName, middleName, email, password} = req.body;
 
     if(!firstName || !lastName || !middleName || !email || !password){
-        logger.error(`incomplete fields, Fetched Data: ${FormData}`)
-        return res.status(400).json({message: "Incomplete fields", FormData})
+        logger.error(`incomplete fields`)
+        return res.status(400).json({message: "Incomplete fields"})
     }
 
     try{
-        const isExisting = await CheckUser(email);
+        
+        const isExisting = await UserModel.findOne({
+            where: {email: email}
+        })
 
         if(isExisting){
             logger.info("Account already exists");
@@ -25,7 +28,7 @@ const SignUpController = async (req, res) => {
         }
 
         logger.info(`created user ${newUser}`);
-        return res.status(200).json({message: `succcesfully created user ${newUser}`});
+        return res.status(200).json({message: `succcesfully created user ${newUser.userId}`});
 
     }catch(err){
         logger.error("Error occured in the Sign up Controller");
