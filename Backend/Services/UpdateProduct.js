@@ -9,7 +9,6 @@ async function UpdateProduct(productId, FormData){
                 productId: productId
             }
         })
-
         productToUpdate.set(FormData)
         await productToUpdate.save();
     }catch(err){
