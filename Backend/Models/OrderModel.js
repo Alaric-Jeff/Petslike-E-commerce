@@ -1,6 +1,7 @@
 import {sequelize} from "../Config/database.js";
 import { DataTypes, Model } from "sequelize";
 import UserModel from "./UserModel.js";
+import ProductModel from './ProductModel.js'
 
 class OrderModel extends Model {}
 
@@ -19,6 +20,12 @@ OrderModel.init({
             model: UserModel,
             key: "userId"
         }
+    },productId:{
+        type: DataTypes.INTEGER,
+        references: {
+            model: ProductModel,
+            key: "productId"
+        }
     },
     productName: {
         type: DataTypes.STRING,
@@ -28,7 +35,7 @@ OrderModel.init({
         type: DataTypes.INTEGER,
         defaultValue: 0
     },
-    unitPrice: {
+    productPrice: {
         type: DataTypes.DOUBLE,
         defaultValue: 0.00
     },

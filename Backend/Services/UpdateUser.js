@@ -13,7 +13,7 @@ async function UpdateUser(userId, FormData){
 
         UserToUpd.set(FormData);
         await UserToUpd.save();
-        
+
     }catch(err){
         logger.error("Error updating user in services, reason: ", err)
     }
