@@ -3,12 +3,7 @@ import logger from "../Utils/logger.js";
 
 async function UpdateProduct(productId, FormData){
     try{
-
-        const productToUpdate = await ProductModel.findByPk({
-            where:{
-                productId: productId
-            }
-        })
+        const productToUpdate = await ProductModel.findByPk(productId)
         productToUpdate.set(FormData)
         await productToUpdate.save();
     }catch(err){

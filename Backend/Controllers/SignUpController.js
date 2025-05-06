@@ -6,7 +6,7 @@ const SignUpController = async (req, res) => {
     const {firstName, lastName, middleName, email, password} = req.body;
 
     if(!firstName || !lastName || !middleName || !email || !password){
-        logger.error(`incomplete fields`)
+        logger.debug(`incomplete fields`)
         return res.status(400).json({message: "Incomplete fields"})
     }
 
