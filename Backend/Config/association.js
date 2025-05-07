@@ -14,8 +14,6 @@ const initializeAssociation = () => {
             foreignKey: "userId"
         });
 
-        
-
         logger.info("Associations initialized successfully.");
     } catch (err) {
         logger.error("Error occurred in defining associations:", err);
