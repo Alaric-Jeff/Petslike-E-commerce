@@ -4,8 +4,6 @@ import logger from "../Utils/logger.js";
 
 async function CreateUser(firstName, lastName, middleName, email, password){
     const hashedPassword = await bcrypt.hash(password, 10);
-   
-
    try{
  
     console.log(`${firstName, " ", lastName}`);
@@ -21,7 +19,7 @@ async function CreateUser(firstName, lastName, middleName, email, password){
     return newUser;
    }catch(err){
     logger.error("Error creating user in services, reason:: ", err)
-    return null;
+    throw err;
    }
 }
 export default CreateUser;

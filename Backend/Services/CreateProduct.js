@@ -12,6 +12,7 @@ async function CreateProduct(productName, productPrice, productQuantity, meatTyp
         })
     }catch(err){
         logger.error("Error adding product in services, reason: ", err)
+        throw err;
     }
 }
 

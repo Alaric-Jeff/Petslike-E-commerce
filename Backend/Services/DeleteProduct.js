@@ -9,6 +9,7 @@ async function DeleteProduct(userId){
         })
     }catch(err){
         logger.error("Error deleting product in services, reason: ", err)
+        throw err;
     }
 };
 

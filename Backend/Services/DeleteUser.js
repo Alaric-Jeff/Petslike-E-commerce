@@ -8,6 +8,7 @@ async function DeleteUser(userId){
         })
     }catch(err){
         logger.error("Error occured in deleting the user in services, reason: ", err)
+        throw err;
     }
 };
 

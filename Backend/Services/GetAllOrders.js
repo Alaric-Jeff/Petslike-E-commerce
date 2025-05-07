@@ -8,6 +8,7 @@ const GetAllOrders = async ()=> {
     return AllOrders;
    }catch(err){
     logger.error("Error occured in fetching orders in services, reason: ", err)
+    throw err;
    }
 };
 
