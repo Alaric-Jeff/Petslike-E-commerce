@@ -8,7 +8,11 @@ const DeleteUserController = async (req, res) => {
 
         if (!userId) {
             logger.error("Undefined User Id");
-            return res.status(400).json({ message: "User Id is undefined." });
+            return res.status(400).json({
+                success: false,
+                message: "User Id is undefined",
+                error: "User Id is undefined"
+            });
         }
 
         const User = await UserModel.findOne({
@@ -17,18 +21,26 @@ const DeleteUserController = async (req, res) => {
 
         if (!User) {
             logger.info(`Account doesn't exist for user: ${userId}`);
-            return res.status(400).json({ message: "Account doesn't exist" });
+            return res.status(400).json({
+                success: false,
+                message: "Account doesn't exist",
+                error: "Account doesn't exist"
+            });
         }
-
-        console.log("user Id:", User.userId);
-
         await DeleteUser(userId);
         logger.info(`Successfully deleted user: ${userId}`);
-        return res.status(200).json({ message: `Successfully deleted user ${userId}` });
+        return res.status(200).json({
+            success: true,
+            message: `Successfully deleted user ${userId}`
+        });
 
     } catch (err) {
         logger.error(`Error occurred in Delete User Controller: ${err.message}`);
-        return res.status(500).json({ message: "Internal server error" });
+        return res.status(500).json({
+            success: false,
+            message: "Internal server error",
+            error: err.message
+         });
     }
 };
 
