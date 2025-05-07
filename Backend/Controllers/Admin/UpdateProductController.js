@@ -7,15 +7,26 @@ const UpdateProductController = async (req, res) => {
 
     if(!productId || !FormData){
         logger.debug("Incomplete fields")
-        return res.status(400).json({message: "Incomplete fields"})
+        return res.status(400).json({
+            success: false,
+            message: "Incomplete fields",
+            error: "Missing required fields"
+        })
     }
 
     try{
         await UpdateProduct(productId, FormData);
-        return res.status(200).json({message: `successfully updated product ${productId}`})
+        return res.status(200).json({
+            success: true,
+            message: `Successfully updated product ${productId}`
+        })
     }catch(err){
         logger.error("Error occured in updating products controller, reason: ", err)
-        return res.status(500).json({message: "Internal server error"})
+        return res.status(500).json({
+            success: false,
+            message: "Internal server error",
+            error: err.message
+        })
     }
 };
 
