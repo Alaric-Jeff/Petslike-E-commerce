@@ -1,5 +1,6 @@
 import UserModel from '../../Models/UserModel.js';
-import logger from "../Utils/logger.js";
+import logger from '../../Utils/logger.js';
+
 
 async function DeleteUser(userId){
     try{
