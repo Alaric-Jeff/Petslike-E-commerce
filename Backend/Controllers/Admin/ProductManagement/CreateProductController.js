@@ -1,6 +1,6 @@
-import ProductModel from "../../Models/ProductModel.js";
-import CreateProduct from "../../Services/CreateProduct.js";
-import logger from "../../Utils/logger.js";
+import ProductModel from "../../../Models/ProductModel.js";
+import CreateProduct from "../../../Services/CreateProduct.js";
+import logger from "../../../Utils/logger.js";
 
 const CreateProductController = async (req, res) => {
     const {productName, productPrice, productQuantity, meatType, lifeStage} = req.body;

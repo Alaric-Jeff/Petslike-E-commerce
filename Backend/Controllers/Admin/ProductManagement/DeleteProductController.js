@@ -1,6 +1,6 @@
 import { log } from "winston";
-import DeleteProduct from "../../Services/DeleteProduct.js";
-import logger from "../../Utils/logger.js";
+import DeleteProduct from "../../../Services/DeleteProduct.js";
+import logger from "../../../Utils/logger.js";
 
 const DeleteProductController = async (req, res) => {
 

@@ -22,7 +22,6 @@ app.use(express.urlencoded({ extended: true }));
     process.exit(1);
   }
 
-
   await initializeAssociation();
   await initializeTables();
   await initRoute(app);
@@ -30,4 +29,5 @@ app.use(express.urlencoded({ extended: true }));
   app.listen(process.env.HTTP_PORT, () => {
     logger.info(`Server is running on port ${process.env.HTTP_PORT}`);
   });
+  
 })();
