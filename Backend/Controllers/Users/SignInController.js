@@ -1,6 +1,6 @@
 import { log } from "winston";
-import SignInService from "../Services/SignInService.js";
-import logger from "../Utils/logger.js";
+import SignInService from "../../Services/SignInService.js";
+import logger from "../../Utils/logger.js";
 
 const SignInController = async (req, res) => {
     const {email, password} = req.body;

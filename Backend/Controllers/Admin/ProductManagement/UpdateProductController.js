@@ -1,6 +1,6 @@
-import UpdateProduct from "../../Services/UpdateProduct.js";
-import ProductModel from "../../Models/ProductModel.js";
-import logger from "../../Utils/logger.js";
+import UpdateProduct from "../../../Services/UpdateProduct.js";
+import ProductModel from "../../../Models/ProductModel.js";
+import logger from "../../../Utils/logger.js";
 
 const UpdateProductController = async (req, res) => {
     const {productId, FormData} = req.body;
