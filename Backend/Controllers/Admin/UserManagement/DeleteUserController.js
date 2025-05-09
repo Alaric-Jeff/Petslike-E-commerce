@@ -1,6 +1,6 @@
-import UserModel from "../../Models/UserModel.js";
-import DeleteUser from "../../Services/DeleteUser.js"
-import logger from "../../Utils/logger.js";
+import UserModel from "../../../Models/UserModel.js";
+import DeleteUser from "../../../Services/UserLogics/DeleteUser.js";
+import logger from "../../../Utils/logger.js";
 
 const DeleteUserController = async (req, res) => {
     try {

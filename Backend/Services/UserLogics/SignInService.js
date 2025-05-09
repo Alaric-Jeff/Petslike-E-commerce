@@ -1,6 +1,6 @@
-import UserModel from "../Models/UserModel.js";
+import UserModel from "../../Models/UserModel.js";
 import bcrypt from "bcrypt";
-import logger from "../Utils/logger.js";
+import logger from "../../Utils/logger.js";
 
 async function SignInService(email, password){
     try{
