@@ -1,4 +1,4 @@
-import User from "../Models/User.js";
+import UserModel from '../../Models/UserModel.js';
 import logger from "../../Utils/logger.js";
 
 async function GetAllUsers(){
