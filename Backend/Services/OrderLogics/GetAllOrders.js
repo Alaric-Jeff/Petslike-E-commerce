@@ -1,4 +1,4 @@
-import OrderModel from "../Models/OrderModel.js";
+import OrderModel from '../../Models/OrderModel.js'
 import logger from "../Utils/logger.js";
 
 const GetAllOrders = async ()=> {
