@@ -4,7 +4,6 @@ import logger from "../../Utils/logger.js";
 async function UpdateUser(userId, UpdateForm){
     try{
         const UserToUpd = await UserModel.findByPk(userId);
-
         UserToUpd.set(UpdateForm);
         await UserToUpd.save();
     }catch(err){

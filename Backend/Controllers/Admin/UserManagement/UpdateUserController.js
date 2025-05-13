@@ -4,7 +4,7 @@ import logger from '../../../Utils/logger.js'
 
 const UpdateUserController = async (req, res) => {
 
-    const {UpdateForm} = req.body;
+    const {UpdateForm, userId} = req.body;
 
     if(!UpdateForm){
         logger.debug("Update Form is null");
@@ -15,23 +15,19 @@ const UpdateUserController = async (req, res) => {
     }
 
     try{
-        const user = await UserModel.findOne({
-            where: {
-                email: UpdateForm.email
-            }
-        })
+        const user = await UserModel.findByPk(userId);
 
         if(!user){
-            logger.debug("No user found for email: ", UpdateForm.email)
+            logger.debug("No user found for userId: ", userId)
             return res.status(400).json({
                 success: false,
-                message: `Account not found for email ${UpdateForm.email}`
+                message: `Account not found for userId ${userId}`
             })
         }
 
-        await UpdateUser(UpdateForm);
+        await UpdateUser(userId ,UpdateForm);
         return res.status(200).json({
-            success: false,
+            success: true,
             message: "Update Success"
         })
 
