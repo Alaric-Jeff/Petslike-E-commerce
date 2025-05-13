@@ -1,4 +1,3 @@
-import { loggers } from 'winston';
 import GetAllUser from '../../../Services/UserLogics/GetAllUsers.js'
 import logger from '../../../Utils/logger.js'
 

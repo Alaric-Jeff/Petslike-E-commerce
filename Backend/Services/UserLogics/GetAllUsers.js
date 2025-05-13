@@ -3,7 +3,7 @@ import logger from "../../Utils/logger.js";
 
 async function GetAllUsers(){
     try{
-        const users = await User.findAll();
+        const users = await UserModel.findAll();
         return users;
     }catch(err){
         logger.error("Error in GetAllUsers, reason: ", err);

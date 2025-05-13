@@ -3,6 +3,6 @@ import express from 'express';
 
 const router = express.Router();
 
-router.update('/', UpdateUserController);
+router.put('/', UpdateUserController);
 
 export default router;
