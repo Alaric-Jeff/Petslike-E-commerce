@@ -5,6 +5,7 @@ import logger from '../Utils/logger.js';
 
 dotenv.config();
 
+
 const { Sequelize } = sequelizePkg;
 
 const initDatabase = async () => {
