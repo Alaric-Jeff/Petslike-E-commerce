@@ -1,13 +1,11 @@
 import SignUpRoute from '../Routes/SignUpRoute.js'
-import DeleteRoute from '../Routes/AdminRoutes/DeleteUserRoute.js'
-import GetAllUserRoute from '../Routes/AdminRoutes/GetAllUserRoute.js'
-import UpdateUserRoute from '../Routes/AdminRoutes/UpdateRoute.js'
+import UserRoute from './AdminRoutes/UserRoutes.js'
+import ProductRoute from './AdminRoutes/ProductRoutes.js'
 
 async function initRoute(app){
     app.use('/sign-up', SignUpRoute);
-    app.use('/delete-user', DeleteRoute)
-    app.use('/get-users', GetAllUserRoute)
-    app.use('/update-user', UpdateUserRoute)
+    app.use('/users', UserRoute);
+    app.use('/products', ProductRoute);
 };
 
 export default initRoute;
