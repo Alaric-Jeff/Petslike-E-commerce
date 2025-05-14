@@ -1,10 +1,10 @@
 import ProductModel from '../../Models/ProductModel.js';
 import logger from '../../Utils/logger.js';
-async function DeleteProduct(userId){
+async function DeleteProduct(productId){
     try{
         await ProductModel.destroy({
             where: {
-                userId: userId
+                productId: productId
             }
         })
     }catch(err){

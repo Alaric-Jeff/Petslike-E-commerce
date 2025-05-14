@@ -1,12 +1,12 @@
-import UpdateProduct from "../../../Services/UpdateProduct.js";
-import ProductModel from "../../../Models/ProductModel.js";
+import UpdateProduct from '../../../Services/ProductLogics/UpdateProduct.js'
 import logger from "../../../Utils/logger.js";
 
 const UpdateProductController = async (req, res) => {
-    const {productId, FormData} = req.body;
+    const {FormData} = req.body;
+    const {productId} = req.params;
 
     if(!productId || !FormData){
-        logger.debug("Incomplete fields")
+        logger.info("Incomplete fields")
         return res.status(400).json({
             success: false,
             message: "Incomplete fields",

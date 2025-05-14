@@ -5,7 +5,7 @@ async function GetProductsByCategory(category){
     try{
         const products = await ProductModel.findAll({
             where: {
-                category: category
+                meatType: category
             }
         });
         return products;

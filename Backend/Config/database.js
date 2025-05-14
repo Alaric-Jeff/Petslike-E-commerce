@@ -21,7 +21,7 @@ const initDatabase = async () => {
     logger.info('Database checked/created successfully.');
     await connection.end();
   } catch (error) {
-    logger.error('Error creating database:', error);
+    logger.error('Error initializing database:', error);
     throw error;
   }
 };

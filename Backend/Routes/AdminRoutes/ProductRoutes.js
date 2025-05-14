@@ -1,13 +1,17 @@
 import CreateProductController from "../../Controllers/Admin/ProductManagement/CreateProductController.js";
 import DeleteProductController from  "../../Controllers/Admin/ProductManagement/DeleteProductController.js";
 import UpdateProductController from "../../Controllers/Admin/ProductManagement/UpdateProductController.js";
+import GetAllProductsController from "../../Controllers/Admin/ProductManagement/GetAllProducts.js";
+import GetProductByCategoryController from "../../Controllers/Admin/ProductManagement/GetProductByCategory.js";
 import express from 'express'
 
 const router = express.Router();
 
 router
     .post('/create', CreateProductController)
-    .put('/update', UpdateProductController)
-    .delete('/delete', DeleteProductController)
+        .post('/category', GetProductByCategoryController)
+    .put('/update/:productId', UpdateProductController)
+    .delete('/delete/:productId', DeleteProductController)
+    .get('/getAll', GetAllProductsController)
 
 export default router;
