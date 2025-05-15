@@ -1,4 +1,4 @@
-import SignInService from "../../Services/SignInService.js";
+import SignInService from '../../Services/UserLogics/SignInService.js'
 import logger from "../../Utils/logger.js";
 
 const SignInController = async (req, res) => {
@@ -14,7 +14,13 @@ const SignInController = async (req, res) => {
     }
 
     try{
-        await SignInService(email, password);
+        const user = await SignInService(email, password);
+        
+        req.session.user = {
+            userId: user.userId,
+            email: user.email
+        };
+        
         logger.info("Sign in successful");
         return res.status(200).json({
             success: true,

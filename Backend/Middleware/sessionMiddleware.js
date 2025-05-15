@@ -29,7 +29,6 @@ const sessionMiddleware = session({
   }
 });
 
-
 sessionStore.sync();
 
 export default sessionMiddleware;
