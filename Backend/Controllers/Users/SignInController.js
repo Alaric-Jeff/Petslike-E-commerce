@@ -1,4 +1,3 @@
-import { log } from "winston";
 import SignInService from "../../Services/SignInService.js";
 import logger from "../../Utils/logger.js";
 
@@ -6,7 +5,7 @@ const SignInController = async (req, res) => {
     const {email, password} = req.body;
 
     if(!email || !password){
-        logger.debug("Incomplete fields");
+        logger.info("Incomplete fields");
         return res.status(400).json({
             success: false,
             message: "Incomplete fields",
@@ -21,6 +20,7 @@ const SignInController = async (req, res) => {
             success: true,
             message: "Sign in successful"
         })
+
     }catch(err){
         logger.error("Error in SignInController, reason: ", err);
         return res.status(500).json({

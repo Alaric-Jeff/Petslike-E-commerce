@@ -1,19 +1,27 @@
 import UserModel from '../Models/UserModel.js'
 import ProductModel from '../Models/ProductModel.js'
 import OrderModel from '../Models/OrderModel.js'
+import ProfileModel from '../Models/ProfileModel.js'
 import logger from '../Utils/logger.js'
 
 const initializeTables = async ()=> {
    try{
-        await UserModel.sync();
-        console.log("User Model have been checked/created")
-        await ProductModel.sync();
-        console.log("Product Model have been checked/created")
-        await OrderModel.sync();
-        console.log("Order Model have been checked/created")
-        console.log('All tables have been checked/created');
+        await UserModel.sync({ force: false });
+        logger.info("User Model have been checked/created");
+        
+        await ProductModel.sync({ force: false });
+        logger.info("Product Model have been checked/created");
+        
+        await OrderModel.sync({ force: false });
+        logger.info("Order Model have been checked/created");
+        
+        await ProfileModel.sync({ force: false });
+        logger.info("Profile Model have been checked/created");
+        
+        logger.info('All tables have been checked/created');
    }catch(err){
-    logger.error("Error occured in initalizing tables, reason: ", err);
+    logger.error("Error occurred in initializing tables, reason: ", err);
+    throw err;
    }
 }
 

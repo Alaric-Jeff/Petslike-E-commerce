@@ -5,12 +5,14 @@ import { sequelize, initDatabase } from "./Config/database.js";
 import initializeAssociation from "./Config/association.js";
 import initializeTables from "./Config/initializeTables.js";
 import initRoute from "./Routes/InitRoute.js";
+import sessionMiddleware from "./Middleware/sessionMiddleware.js";
 
 dotenv.config();
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(sessionMiddleware);
 
 (async () => {
   try {
@@ -29,5 +31,4 @@ app.use(express.urlencoded({ extended: true }));
   app.listen(process.env.HTTP_PORT, () => {
     logger.info(`Server is running on port ${process.env.HTTP_PORT}`);
   });
-  
 })();

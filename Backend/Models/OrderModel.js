@@ -1,7 +1,5 @@
 import {sequelize} from "../Config/database.js";
 import { DataTypes, Model } from "sequelize";
-import UserModel from "./UserModel.js";
-import ProductModel from './ProductModel.js'
 
 class OrderModel extends Model {}
 
@@ -15,17 +13,11 @@ OrderModel.init({
     },
     userId: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {   
-            model: UserModel,
-            key: "userId"
-        }
-    },productId:{
+        allowNull: false
+    },
+    productId: {
         type: DataTypes.INTEGER,
-        references: {
-            model: ProductModel,
-            key: "productId"
-        }
+        allowNull: true
     },
     productName: {
         type: DataTypes.STRING,
@@ -45,13 +37,14 @@ OrderModel.init({
     }
 }, {
     sequelize,
-    modelName: "Order",
+    modelName: "OrderModel",
     tableName: "Orders",
     timestamps: true,
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     indexes: [
-        { fields: ['userId'] } 
+        { fields: ['userId'] },
+        { fields: ['productId'] }
     ]
 });
 

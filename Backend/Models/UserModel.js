@@ -27,8 +27,6 @@ UserModel.init({
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
-    },contactNumber:{
-        type: DataTypes.STRING,
     },
     password:{
         type: DataTypes.STRING,
