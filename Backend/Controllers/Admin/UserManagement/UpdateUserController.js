@@ -32,11 +32,12 @@ const UpdateUserController = async (req, res) => {
         })
 
     }catch(err){
-        logger.error(`Error occured in Update user controller, reason: ${err}`)
+        logger.error(`Error occurred in Update user controller, reason: ${err.message}`)
+
         return res.status(500).json({
             success: false,
             message: "Internal server error",
-            error: err
+            error: err.message
         })
     }
 };

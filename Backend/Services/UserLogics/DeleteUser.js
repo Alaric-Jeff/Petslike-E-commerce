@@ -1,16 +1,21 @@
 import UserModel from '../../Models/UserModel.js';
 import logger from '../../Utils/logger.js';
 
+async function DeleteUser(userId) {
+    try {
+        const result = await UserModel.destroy({
+            where: { userId: userId }
+        });
 
-async function DeleteUser(userId){
-    try{
-        await UserModel.destroy({
-            where: {userId: userId}
-        })
-    }catch(err){
-        logger.error("Error occured in deleting the user in services, reason: ", err)
-        throw err;
+        if (result === 0) {
+            throw new Error('No user was deleted');
+        }
+
+        return result;
+    } catch (err) {
+        logger.error("Error occurred in deleting the user in services, reason: ", err);
+        throw new Error('Database error: ' + err.message);
     }
-};
+}
 
 export default DeleteUser;

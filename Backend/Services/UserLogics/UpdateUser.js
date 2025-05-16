@@ -8,7 +8,7 @@ async function UpdateUser(userId, UpdateForm){
         await UserToUpd.save();
     }catch(err){
         logger.error("Error updating user in services, reason: ", err)
-        throw err;
+        throw new Error(err);
     }
 };
 

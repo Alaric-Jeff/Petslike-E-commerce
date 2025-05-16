@@ -28,7 +28,24 @@ const SignInController = async (req, res) => {
         })
 
     }catch(err){
-        logger.error("Error in SignInController, reason: ", err);
+        logger.error("Error in SignInController, reason: ", err.message);
+        
+        if (err.message === "User not found") {
+            return res.status(404).json({
+                success: false,
+                message: "User not found",
+                error: err.message
+            });
+        }
+
+        if (err.message === "Invalid password") {
+            return res.status(401).json({
+                success: false,
+                message: "Invalid credentials",
+                error: err.message
+            });
+        }
+        
         return res.status(500).json({
             success: false,
             message: "Internal server error",
