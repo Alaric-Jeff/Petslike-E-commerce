@@ -15,36 +15,38 @@ OrderModel.init({
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    productId: {
+    cartId: {
         type: DataTypes.INTEGER,
-        allowNull: true
+        allowNull: false
     },
-    productName: {
+    status: {
+        type: DataTypes.ENUM('pending', 'confirmed', 'shipped', 'delivered', 'cancelled'),
+        defaultValue: 'pending',
+        allowNull: false
+    },
+    totalAmount: {
+        type: DataTypes.DOUBLE(10, 2),
+        allowNull: false
+    },
+    shippingAddress: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    orderQuantity: {
-        type: DataTypes.INTEGER,
-        defaultValue: 0
-    },
-    productPrice: {
-        type: DataTypes.DOUBLE,
-        defaultValue: 0.00
-    },
-    orderPrice: {
-        type: DataTypes.DOUBLE,
-        defaultValue: 0.00
+    paymentMethod: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 }, {
     sequelize,
     modelName: "OrderModel",
     tableName: "Orders",
     timestamps: true,
-    createdAt: 'createdAt',
+    createdAt: 'orderDate',
     updatedAt: 'updatedAt',
     indexes: [
         { fields: ['userId'] },
-        { fields: ['productId'] }
+        { fields: ['cartId'] },
+        { fields: ['status'] }
     ]
 });
 

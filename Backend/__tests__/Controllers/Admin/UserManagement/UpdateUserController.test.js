@@ -107,5 +107,6 @@ describe('UpdateUserController', () => {
       expect(mockUserModel.findByPk).toHaveBeenCalledWith(userId);
       expect(mockUpdateUser).toHaveBeenCalledWith(userId, updateForm);
     });
+    
   });
 });

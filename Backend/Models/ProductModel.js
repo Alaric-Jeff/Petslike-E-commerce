@@ -18,16 +18,33 @@ ProductModel.init({
         type: DataTypes.DOUBLE(10, 2), 
         defaultValue: 0.00
     },
-    productQuantity: {
+    productStock: {
         type: DataTypes.INTEGER,
         defaultValue: 0
-    },
-    meatType: {
-        type: DataTypes.STRING(50),
-        allowNull: false,
+    }, foodCategory: {
+        type: DataTypes.ENUM('Dry Food', 'Wet Food', 'Treats', 'Supplements'),
+        allowNull: false
+    }, dietCategory: {
+        type: DataTypes.ENUM('processed-meat', 'raw-meat', 'vegetarian', 'grain-free'),
+        allowNull: false
     },
     lifeStage: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.ENUM('baby', 'young', 'adult', 'mature', 'senior', 'all-stages'),
+        allowNull: false
+    }, productDescription: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: 'N/A'
+    }, productImage: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: 'N/A'
+    }, productBrand: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: 'N/A'
+    }, animalType: {
+        type: DataTypes.ENUM('dog', 'cat', 'bird', 'fish', 'hamster', 'rabbit'),
         allowNull: false
     }
 }, {
@@ -35,12 +52,13 @@ ProductModel.init({
     modelName: "ProductModel",
     tableName: "Products",
     timestamps: true,
-    underscored: true,
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
     indexes: [
-        { fields: ['meat_type'] },
-        { fields: ['life_stage'] }
+        { fields: ['foodCategory'] },
+        { fields: ['lifeStage'] },
+        { fields: ['dietCategory'] },
+        { fields: ['animalType'] }
     ]
 });
 
