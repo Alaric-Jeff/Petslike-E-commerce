@@ -9,7 +9,6 @@ const router = express.Router();
 
 router
     .post('/create', CreateProductController)
-        .post('/category', GetProductByCategoryController)
     .put('/update/:productId', UpdateProductController)
     .delete('/delete/:productId', DeleteProductController)
     .get('/getAll', GetAllProductsController)
