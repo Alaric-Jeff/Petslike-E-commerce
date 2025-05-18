@@ -17,7 +17,7 @@ OrderModel.init({
     },
     cartId: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
     },
     status: {
         type: DataTypes.ENUM('pending', 'confirmed', 'shipped', 'delivered', 'cancelled'),

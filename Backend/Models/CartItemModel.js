@@ -13,7 +13,7 @@ CartItemModel.init({
     },
     cartId: {
         type: DataTypes.INTEGER,
-        allowNull: falsef
+        allowNull: true
     }, 
     productId: {
         type: DataTypes.INTEGER,
