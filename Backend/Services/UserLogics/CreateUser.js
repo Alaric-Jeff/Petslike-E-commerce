@@ -21,5 +21,6 @@ async function CreateUser(firstName, lastName, middleName, email, password){
     logger.error("Error creating user in services, reason:: ", err)
     throw err;
    }
-}
+};
+
 export default CreateUser;
