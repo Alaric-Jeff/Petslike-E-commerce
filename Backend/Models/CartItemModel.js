@@ -24,7 +24,7 @@ CartItemModel.init({
         allowNull: false,
         defaultValue: 1
     },
-    price: {
+    totalPrice: {
         type: DataTypes.DOUBLE(10, 2),
         allowNull: false
     }
