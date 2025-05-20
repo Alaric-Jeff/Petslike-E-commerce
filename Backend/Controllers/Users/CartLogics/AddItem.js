@@ -16,7 +16,6 @@ const AddItemController = async (req, res) => {
       }
 
     try{
-
          const product = await ProductModel.findByPk(productId);
 
          if(!product){

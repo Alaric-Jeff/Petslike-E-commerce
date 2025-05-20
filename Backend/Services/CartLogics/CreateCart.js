@@ -1,5 +1,4 @@
 import CartModel from "../../Models/CartModel.js";
-import ProductModel from '../../Models/ProductModel.js'
 import logger from "../../Utils/logger.js";
 
 async function CreateCart(userId){

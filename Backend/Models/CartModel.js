@@ -20,7 +20,8 @@ CartModel.init({
         defaultValue: 'active',
         allowNull: false
     }, itemCount: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
     },
     totalAmount: {
         type: DataTypes.DOUBLE(10, 2),
