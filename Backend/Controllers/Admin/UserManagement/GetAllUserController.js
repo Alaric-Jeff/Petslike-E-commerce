@@ -9,7 +9,7 @@ const GetAllUsersController = async (req, res)=> {
         return res.status(200).json({
             success: true,
             message: "Successfully Fetched all users",
-            users
+            users: users
         })
     }catch(err){
         logger.error("Error occured in Get User Controller, reason: ", err)

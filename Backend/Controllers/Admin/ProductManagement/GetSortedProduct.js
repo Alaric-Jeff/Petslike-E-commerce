@@ -32,7 +32,7 @@ const GetSortedProduct = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Successfully retrieved sorted products",
-      products
+      products: products
     });
 
   } catch (err) {

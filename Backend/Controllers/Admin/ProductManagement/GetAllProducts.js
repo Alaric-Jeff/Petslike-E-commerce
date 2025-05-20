@@ -8,7 +8,7 @@ const GetAllProductsController = async (req, res) => {
         return res.status(200).json({
             success: true,
             message: "Get Products Success",
-            products
+            products: products
         })
     }catch(error){
         return res.status(500).json({
