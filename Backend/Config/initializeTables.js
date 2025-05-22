@@ -18,7 +18,7 @@ const initializeTables = async ()=> {
         await CartModel.sync({force: false});
         logger.info("Cart Model have been checked/created")
 
-        await CartItemModel.sync({force: false});
+        await CartItemModel.sync({force: true});
         logger.info("Cart Items Model have been checked/created")
         
         await OrderModel.sync({ force: false });

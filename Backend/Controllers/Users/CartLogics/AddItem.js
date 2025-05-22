@@ -2,7 +2,6 @@ import AddItem from '../../../Services/CartLogics/AddItem.js'
 import ProductModel from '../../../Models/ProductModel.js';
 import CartModel from '../../../Models/CartModel.js';
 import logger from '../../../Utils/logger.js'
-import { log } from 'winston';
 
 const AddItemController = async (req, res) => {
       const {cartId, productId, quantity} = req.body;
@@ -48,7 +47,7 @@ const AddItemController = async (req, res) => {
          await AddItem(product.productId, cart.cartId, quantity, totalPrice);
          logger.info("Successfully added item")
          return res.status(200).json({
-            success: false,
+            success: true,
             message: "Successfully added item"
          })
 
