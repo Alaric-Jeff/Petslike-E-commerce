@@ -45,11 +45,7 @@ async function GetCartItemCount(cartId, userId) {
         if (!cart) {
             throw new Error('Cart not found');
         }
-
-        // Get the actual count from cart items
         const itemCount = cart.CartItems ? cart.CartItems.length : 0;
-
-        // Update the itemCount in CartModel if it's different
         if (cart.itemCount !== itemCount) {
             await cart.update({ itemCount });
         }
