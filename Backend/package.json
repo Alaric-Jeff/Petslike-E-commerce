@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "petslike-ecommerce",
   "version": "1.0.0",
   "main": "server.js",
   "type": "module",
@@ -9,7 +9,7 @@
     "test:coverage": "vitest run --coverage",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Jeffrey M. Aspiras",
   "license": "ISC",
   "description": "",
   "dependencies": {
