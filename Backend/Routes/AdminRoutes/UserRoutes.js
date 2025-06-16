@@ -8,5 +8,4 @@ router
     .put('/', UpdateUserController)
     .delete('/:userId', DeleteUserController)
     .get('/', GetAllUsersController)
-    
 export default router;
