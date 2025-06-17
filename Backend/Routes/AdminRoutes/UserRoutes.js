@@ -1,5 +1,5 @@
 import DeleteUserController from '../../Controllers/UserController/DeleteUserController.js';
-
+import GetAllUsersController from '../../Controllers/UserController/GetAllUserController.js';
 import express from 'express'
 
 const router = express.Router();
