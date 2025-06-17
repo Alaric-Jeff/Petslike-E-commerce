@@ -11,10 +11,10 @@ async function DeleteUser(userId) {
             throw new Error('No user was deleted');
         }
 
-        return result;
+        logger.info("delete user services successful")
     } catch (err) {
         logger.error("Error occurred in deleting the user in services, reason: ", err);
-        throw new Error('Database error: ' + err.message);
+        throw err;
     }
 }
 

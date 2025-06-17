@@ -1,7 +1,7 @@
-import DeleteUserController from '../../Controllers/Admin/UserManagement/DeleteUserController.js';
-import UpdateUserController from "../../Controllers/Admin/UserManagement/UpdateUserController.js";
-import GetAllUsersController from '../../Controllers/Admin/UserManagement/GetAllUserController.js';
+import DeleteUserController from '../../Controllers/UserController/DeleteUserController.js';
+
 import express from 'express'
+
 const router = express.Router();
 
 router 
