@@ -8,7 +8,7 @@ const GetAllUsersController = async (req, res) => {
         return res.status(200).json({
             success: true,
             message: "Successfully retrieved all users",
-            users: users
+            data: users
         })
     }catch(err){
         logger.error("Error occured in Get user controller:  ", err)
