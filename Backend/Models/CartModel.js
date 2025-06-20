@@ -22,14 +22,16 @@ CartModel.init({
     }, itemCount: {
         type: DataTypes.INTEGER,
         defaultValue: 0,
+        allowNull: false
     },
     totalAmount: {
         type: DataTypes.DOUBLE(10, 2),
-        defaultValue: 0.00
+        defaultValue: 0.00,
+        allowNull: false
     },
     orderDate: {
         type: DataTypes.DATE,
-        allowNull: true
+        allowNull: true,
     }
 }, {
     sequelize,
