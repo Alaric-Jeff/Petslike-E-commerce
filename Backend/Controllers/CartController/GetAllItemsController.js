@@ -1,5 +1,5 @@
-import {GetAllitemsInCart} from "../../Services/CartService/GetAllItemsInCart.js";
-import logger from "../../../Utils/logger.js";
+import {GetAllitemsInCart} from "../../Services/CartLogics/GetAllItems.js";
+import logger from "../../Utils/logger.js";
 
 const GetAllItemsController = async (req, res) => {
 
@@ -37,3 +37,5 @@ const GetAllItemsController = async (req, res) => {
         });
     }
 }
+
+export default GetAllItemsController;

@@ -1,5 +1,5 @@
-import GetSortedProducts from "../Services/ProductService.js";
-import logger from "../../Utils/logger.js";
+import GetSortedProducts from '../../Services/ProductLogics/GetSorted.js'
+import logger from '../../Utils/logger.js';
 export const GetSortedProductsController = async (req, res) => {
     
     const categories = req.body.categories;
@@ -28,3 +28,5 @@ export const GetSortedProductsController = async (req, res) => {
         });
     }
 };
+
+export default GetSortedProductsController;

@@ -1,5 +1,5 @@
 import GetCarts from "../../Services/CartLogics/GetCarts.js";
-import logger from "../../../Utils/logger.js";
+import logger from "../../Utils/logger.js";
 
 const GetCartsController = async (req, res) => {
 
@@ -35,3 +35,5 @@ const GetCartsController = async (req, res) => {
         });
     }
 }
+
+export default GetCartsController;

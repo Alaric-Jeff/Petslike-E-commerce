@@ -1,6 +1,6 @@
-import UserModel from "../../Models/UserModel.js";
-import CreateUser from "../../Services/UserLogics/CreateUser.js";
-import logger from "../../Utils/logger.js";
+import UserModel from "../Models/UserModel.js"
+import CreateUser from "../Services/UserLogics/CreateUser.js";
+import logger from "../Utils/logger.js";
 
 const SignUpController = async (req, res) => {
     const {firstName, lastName, middleName, email, password} = req.body;

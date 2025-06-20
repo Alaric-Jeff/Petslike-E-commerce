@@ -9,7 +9,6 @@ async function initRoute(app){
     app.use('/users', UserRoute);
     app.use('/products', ProductRoute);
     app.use('/carts', CartRoutes);
-
 };
 
 export default initRoute;

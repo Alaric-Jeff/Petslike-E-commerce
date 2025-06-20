@@ -1,5 +1,5 @@
 import DeleteCart from "../../Services/CartLogics/DeleteCart.js";
-import logger from "../../../Utils/logger.js";
+import logger from "../../Utils/logger.js";
 
 const DeleteCartController = async (req, res) => {
 
