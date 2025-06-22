@@ -1,4 +1,4 @@
-import CreateProduct from '../../Services/ProductLogics/CreateProduct.js'
+import CreateProduct from '../../Services/ProductServices/CreateProduct.js'
 import logger from '../../Utils/logger.js'
 
 const CreateProductController = async (req, res)=> {

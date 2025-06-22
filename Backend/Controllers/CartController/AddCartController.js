@@ -1,4 +1,4 @@
-import CreateCart from '../../Services/CartLogics/CreateCart.js'
+import CreateCart from '../../Services/CartServices/CreateCart.js'
 import logger from '../../Utils/logger.js';
 
 const AddCartController = async (req, res) => {

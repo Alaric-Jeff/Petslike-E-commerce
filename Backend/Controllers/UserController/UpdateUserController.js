@@ -1,4 +1,4 @@
-import UpdateUser from '../../Services/UserLogics/UpdateUser.js'
+import UpdateUser from '../../Services/UserServices/UpdateUser.js'
 import logger from '../../Utils/logger.js'
 
 const UpdateUserController = async (req, res) => {

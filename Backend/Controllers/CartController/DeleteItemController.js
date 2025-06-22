@@ -1,4 +1,4 @@
-import DeleteItem from "../../Services/CartLogics/DeleteItem.js";
+import DeleteItem from "../../Services/CartServices/DeleteItem.js";
 import logger from "../../Utils/logger.js";
 
 const DeleteItemController = async (req, res) => {

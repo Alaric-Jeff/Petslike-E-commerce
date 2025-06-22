@@ -1,4 +1,4 @@
-import GetSortedProducts from '../../Services/ProductLogics/GetSorted.js'
+import GetSortedProducts from '../../Services/ProductServices/GetSorted.js'
 import logger from '../../Utils/logger.js';
 export const GetSortedProductsController = async (req, res) => {
     

@@ -1,6 +1,6 @@
 import express from 'express';
 import logger from '../../Utils/logger.js';
-import GetAllProducts from '../../Services/ProductLogics/GetAllProducts.js';
+import GetAllProducts from '../../Services/ProductServices/GetAllProducts.js';
 
 const GetAllProductsController = async (req, res) => {
     try {

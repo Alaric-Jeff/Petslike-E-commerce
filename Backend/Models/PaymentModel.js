@@ -23,7 +23,15 @@ PaymentModel.init({
     type: DataTypes.ENUM('requires_action', 'requires_confirmation','succeeded', 'canceled', 'processing'),
     allowNull: false,
     defaultValue: "requires_confirmation"
-  },
+  }, currency: {
+    type: DataTypes.ENUM('php', 'usd', 'eur'),
+    allowNull: false,
+    defaultValue: 'php'
+  }, amount: {
+    type: DataTypes.FLOAT,
+    allowNull: false,
+    defaultValue: 0.00
+  }
 }, {
   sequelize,
   modelName: "PaymentModel",

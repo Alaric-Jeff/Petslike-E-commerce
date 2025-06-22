@@ -1,5 +1,5 @@
 import UserModel from "../Models/UserModel.js"
-import CreateUser from "../Services/UserLogics/CreateUser.js";
+import CreateUser from "../Services/UserServices/CreateUser.js";
 import logger from "../Utils/logger.js";
 
 const SignUpController = async (req, res) => {

@@ -1,4 +1,4 @@
-import UpdateProduct from "../../Services/ProductLogics/UpdateProduct.js";
+import UpdateProduct from "../../Services/ProductServices/UpdateProduct.js";
 import logger from '../../Utils/logger.js';
 
 const UpdateProductController = async (req, res) => {

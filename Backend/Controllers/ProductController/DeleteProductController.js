@@ -1,6 +1,6 @@
 import express from 'express';
 import logger from '../../Utils/logger.js';
-import DeleteProduct from '../../Services/ProductLogics/DeleteProduct.js';
+import DeleteProduct from '../../Services/ProductServices/DeleteProduct.js';
 
 const DeleteProductController = async (req, res)=> {
     const {productId} = req.params;

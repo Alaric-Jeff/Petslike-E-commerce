@@ -7,7 +7,7 @@ const PaymentStatusCheckController = catchAsync(async (req, res)=> {
     const{paymentIntentId} = req.body;
 
     if(!paymentIntentId){
-        logger.info("payment intent id is invalid, recieved payment intend id: ", paymentIntentId)
+        logger.info("payment intent id is invalid, received payment intent id: ", paymentIntentId)
         return res.status(400).json({
             message: "Payment ID is undefined",
             success: false

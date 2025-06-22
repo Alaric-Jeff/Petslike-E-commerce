@@ -1,4 +1,4 @@
-import {GetAllitemsInCart} from "../../Services/CartLogics/GetAllItems.js";
+import {GetAllitemsInCart} from "../../Services/CartServices/GetAllItems.js";
 import logger from "../../Utils/logger.js";
 
 const GetAllItemsController = async (req, res) => {

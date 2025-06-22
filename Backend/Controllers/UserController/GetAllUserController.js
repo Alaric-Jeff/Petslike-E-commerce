@@ -1,4 +1,4 @@
-import GetAllUsers from '../../Services/UserLogics/GetAllUsers.js'
+import GetAllUsers from '../../Services/UserServices/GetAllUsers.js'
 import logger from '../../Utils/logger.js'
 
 const GetAllUsersController = async (req, res) => {

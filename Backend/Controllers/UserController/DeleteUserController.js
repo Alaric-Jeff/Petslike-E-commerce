@@ -1,4 +1,4 @@
-import DeleteUser from '../../Services/UserLogics/DeleteUser.js'
+import DeleteUser from '../../Services/UserServices/DeleteUser.js'
 import logger from '../../Utils/logger.js'
 
 const DeleteUserController = async (req, res) => {
