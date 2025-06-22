@@ -4,6 +4,7 @@ import ProductModel from "../Models/ProductModel.js";
 import ProfileModel from "../Models/ProfileModel.js";
 import CartModel from "../Models/CartModel.js";
 import CartItemModel from "../Models/CartItemModel.js";
+import PaymentModel from "../Models/PaymentModel.js";
 import logger from "../Utils/logger.js";
 
 const initializeAssociation = () => {
@@ -24,6 +25,19 @@ const initializeAssociation = () => {
             onDelete: "CASCADE",
             onUpdate: "CASCADE"
         });
+        UserModel.hasMany(PaymentModel, {
+            foreignKey: "userId",
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE"
+        });
+
+        //Payment associations
+        PaymentModel.belongsTo(UserModel, {
+            foreignKey: "userId",
+            onDelete: "CASCADE",
+            onUpdate: "CASCADE"
+        })
+        
 
         // Cart associations
         CartModel.belongsTo(UserModel, {

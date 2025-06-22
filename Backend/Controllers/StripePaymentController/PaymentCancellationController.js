@@ -1,5 +1,6 @@
 import stripe from "../../Config/stripConfig.js";
 import logger from "../../Utils/logger.js";
+import ChangeStatusService from "../../Services/PaymentServices/ChangePaymentStatusService.js";
 import { catchAsync } from "../../Utils/catchAsync.js";
 
 const PaymentCancellationController = catchAsync(async (req, res)=> {
@@ -16,6 +17,16 @@ const PaymentCancellationController = catchAsync(async (req, res)=> {
 
     try{
         const paymentIntent = await stripe.paymentIntents.cancel(paymentIntentId);
+
+        if(!paymentIntent){
+            logger.info("Payment intent not found")
+            return res.status(404).json({
+                success: false,
+                message: "Payment intent not found"
+            })
+        }
+
+        await ChangeStatusService(paymentIntent.id, paymentIntent.status);
 
         logger.info("Cancellation of payment intent is successful")
 

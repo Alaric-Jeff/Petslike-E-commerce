@@ -1,6 +1,8 @@
 import stripe from '../../Config/stripConfig.js'
 import { catchAsync } from '../../Utils/catchAsync.js'
 import logger from '../../Utils/logger.js'
+import CreatePaymentIntentService from '../../Services/PaymentServices/CreatePaymentIntentService.js'   
+import { log } from 'winston'
 
 const CreatePaymentIntentController = catchAsync(async (req, res) => {
 
@@ -70,6 +72,16 @@ const CreatePaymentIntentController = catchAsync(async (req, res) => {
             confirm: false
         })
 
+        if (!paymentIntent) {
+            logger.error("Failed to create payment intent");
+            return res.status(500).json({
+                success: false,
+                message: "Failed to create payment intent"
+            });
+        }
+
+        await CreatePaymentIntentService(paymentIntent.metadata.userId, paymentIntent.id, paymentIntent.status, paymentIntent.currency, amountInPHP);
+
         logger.info("Successfully created payment intent")
         return res.status(200).json({
             success: true,
@@ -79,11 +91,16 @@ const CreatePaymentIntentController = catchAsync(async (req, res) => {
         })
 
      }catch(err){
-        logger.error('Stripe error', {
+
+        if(err.type === 'DatabaseError'){
+            logger.error("Database error while creating payment intent")
+        }else{
+            logger.error('Stripe error', {
             error: err.message,
             type: err.type,
             userId: req.user?.userId
         });
+        }
 
         return res.status(500).json({
             message: "Internal server error",
