@@ -2,7 +2,6 @@ import stripe from '../../Config/stripConfig.js'
 import { catchAsync } from '../../Utils/catchAsync.js'
 import logger from '../../Utils/logger.js'
 import CreatePaymentIntentService from '../../Services/PaymentServices/CreatePaymentIntentService.js'   
-import { log } from 'winston'
 
 const CreatePaymentIntentController = catchAsync(async (req, res) => {
 
@@ -17,7 +16,7 @@ const CreatePaymentIntentController = catchAsync(async (req, res) => {
     };
 
     if (!amount || !currency) {
-        logger.warn("Missing required fields for payment");
+        logger.warn(`missing amount or currency in request body, amount: ${amount}, currency: ${currency}`);
         return res.status(400).json({
             message: "Amount and currency are required",
             success: false
@@ -25,7 +24,7 @@ const CreatePaymentIntentController = catchAsync(async (req, res) => {
     }
 
     if (isNaN(amount) || amount <= 0) {
-        logger.warn("Invalid amount provided");
+        logger.warn("Invalid amount provided, received: " + amount);
         return res.status(400).json({
             message: "Amount must be a positive number",
             success: false

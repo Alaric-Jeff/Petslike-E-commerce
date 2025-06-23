@@ -34,6 +34,7 @@ const RefundPaymentController = catchAsync(async (req, res)=> {
             message: "Refund processed successfully",
             refundId: refund.id
         });
+        
     }catch(err){
         logger.error("Error in refunding payment, reason: ", err);
         return res.status(500).json({
