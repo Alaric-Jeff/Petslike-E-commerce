@@ -3,6 +3,7 @@ import DeleteProductController from "../../Controllers/ProductController/DeleteP
 import UpdateProductController from "../../Controllers/ProductController/UpdateProductController.js";
 import GetAllProductsController from "../../Controllers/ProductController/GetAllProducts.js";
 import GetSortedProduct from "../../Controllers/ProductController/GetSortedProducts.js";
+import SearchProduct from '../../Controllers/ProductController/SearchProductController.js'
 
 import express from 'express'
 
@@ -11,6 +12,7 @@ const router = express.Router();
 router
     .post('/create', CreateProductController)
         .post('/sorted', GetSortedProduct)
+        .post('/search-product', SearchProduct)
     .put('/update/:productId', UpdateProductController)
     .delete('/delete/:productId', DeleteProductController)
     .get('/getAll', GetAllProductsController)
