@@ -66,7 +66,8 @@ const CreatePaymentIntentController = catchAsync(async (req, res) => {
                 ...metadata,
                 userId: req.user?.userId || 'anonymous',
                 originalAmount: amount,
-                originalCurrency: currency
+                originalCurrency: currency,
+                status: 'requires_confirmation'
             },
             confirm: false
         })
@@ -78,6 +79,8 @@ const CreatePaymentIntentController = catchAsync(async (req, res) => {
                 message: "Failed to create payment intent"
             });
         }
+
+        logger.info("Status in controller", { status: paymentIntent.status });
 
         await CreatePaymentIntentService(paymentIntent.metadata.userId, paymentIntent.id, paymentIntent.status, paymentIntent.currency, amountInPHP);
 

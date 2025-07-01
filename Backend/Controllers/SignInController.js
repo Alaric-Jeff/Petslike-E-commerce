@@ -1,39 +1,38 @@
-import UserModel from "../Models/UserModel.js"
-import CreateUser from "../Services/UserServices/CreateUser.js";
+import SignInService from "../Services/UserServices/SignInService.js";
 import logger from "../Utils/logger.js";
 
-const SignUpController = async (req, res) => {
-    const {firstName, lastName, middleName, email, password} = req.body;
+const SignInController = async (req, res) => {
+    const {email, password} = req.body;
 
-    if(!firstName || !lastName || !middleName || !email || !password){
-        logger.debug(`incomplete fields`)
-        return res.status(400).json({message: "Incomplete fields"})
-    }
+    if(!email || !password) {
+        logger.warn("Email or password is missing in the request body");
+        return res.status(400).json({
+            success: false,
+            message: "Email and password are required"
+        });
+    }   
 
     try{
-        
-        const isExisting = await UserModel.findOne({
-            where: {email: email}
-        })
+        const user = await SignInService(email, password);
+        logger.info(`User with email ${email} signed in successfully`);
 
-        if(isExisting){
-            logger.info("Account already exists");
-            return res.status(401).json({message: "Account already exists"})
-        }
-        
-        const newUser = await CreateUser(firstName, lastName, middleName, email, password);
-
-        if(!newUser){
-            return res.status(500).json({message: "Error occured in creating user"})
+        req.session.user = {
+            sid: user.userId,
+            email: user.email,
+            name: user.firstName
         }
 
-        logger.info(`created user ${newUser}`);
-        return res.status(200).json({message: `succcesfully created user ${newUser.userId}`});
-
-    }catch(err){
-        logger.error("Error occured in the Sign up Controller");
-        return res.status(500).json({message: "Internal server error:"})
+        return res.status(200).json({
+            success: true,
+            message: "Sign-in successful"
+        });
+    } catch (error) {
+        logger.error("Error during sign-in: ", error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal server error"
+        });
     }
 };
 
-export default SignUpController;
+export default SignInController;

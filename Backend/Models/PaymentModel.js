@@ -1,3 +1,4 @@
+// models/PaymentModel.js
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../Config/database.js";
 
@@ -20,14 +21,23 @@ PaymentModel.init({
     unique: true,
   },
   status: {
-    type: DataTypes.ENUM('requires_action', 'requires_confirmation','succeeded', 'canceled', 'processing'),
+    type: DataTypes.ENUM(
+      'requires_action',
+      'requires_confirmation',
+      'requires_payment_method',
+      'processing',
+      'succeeded',
+      'canceled'
+    ),
     allowNull: false,
-    defaultValue: "requires_confirmation"
-  }, currency: {
+    defaultValue: 'requires_payment_method'
+  },
+  currency: {
     type: DataTypes.ENUM('php', 'usd', 'eur'),
     allowNull: false,
     defaultValue: 'php'
-  }, amount: {
+  },
+  amount: {
     type: DataTypes.FLOAT,
     allowNull: false,
     defaultValue: 0.00
@@ -37,7 +47,8 @@ PaymentModel.init({
   modelName: "PaymentModel",
   tableName: "PaymentTable",
   timestamps: true,
-  createdAt: 'orderDate', 
+  createdAt: 'orderDate',
+  updatedAt: 'updatedAt',
   indexes: [
     {
       fields: ['userId', 'status'],

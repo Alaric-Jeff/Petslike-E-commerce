@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 dotenv.config();
 
 const stripe = new Stripe(process.env.STRIPE_KEY, { 
-    apiVersion: '2025-05-28'
+    apiVersion: '2025-03-31.basil'
 })
 
 export default stripe;

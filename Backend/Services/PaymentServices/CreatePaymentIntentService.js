@@ -13,8 +13,17 @@ async function CreatePaymentIntentService(userId, paymentIntentId, status, curre
         logger.info("Succesfully stored intent in the database")
         return;
     }catch(err){
-        logger.error("Failed to store the intent in the database")
-        throw new err;
+        logger.info("status: ", status)
+        logger.error("Failed to store the intent in the database, datas: ", {
+            userId,
+            paymentIntentId,
+            status,
+            currency,
+            amount,
+        
+        })
+        logger.error("Error occurred while storing payment intent in the database: ", err);
+        throw err;
     }
 }
 

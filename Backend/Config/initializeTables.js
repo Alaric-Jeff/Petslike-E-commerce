@@ -5,6 +5,7 @@ import ProfileModel from '../Models/ProfileModel.js'
 import logger from '../Utils/logger.js'
 import CartItemModel from '../Models/CartItemModel.js'
 import CartModel from '../Models/CartModel.js'
+import PaymentModel from '../Models/PaymentModel.js'
 
 
 const initializeTables = async ()=> {
@@ -26,6 +27,9 @@ const initializeTables = async ()=> {
         
         await ProfileModel.sync({ force: false });
         logger.info("Profile Model have been checked/created");
+
+        await PaymentModel.sync({ alter: true, force: false });
+        logger.info("Payment Model have been checked/created");
         
         logger.info('All tables have been checked/created');
    }catch(err){
